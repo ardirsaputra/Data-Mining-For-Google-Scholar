@@ -55,11 +55,11 @@ for ($i = 1; $i < 51; $i++) {
         $homepage .= ",";
     };
 }
+echo ' c(' . $id . ')';
+echo ' c(' . $nama . ')';
 echo ' c(' . $affiliation . ')';
 echo ' c(' . $total_cites . ')';
 echo ' c(' . $h_index . ')';
 echo ' c(' . $i10_index . ')';
 echo ' c(' . $fields . ')';
 echo ' c(' . $homepage . ')';
-
-//echo 'DataExcel <- data.frame(id = c(' . $id . '),name = c(' . $nama . '),affiliation = c(' . $affiliation . '),total_cites = c(' . $total_cites . '),h_index = c(' . $h_index . '),i10_index = c(' . $i10_index . '),fields = c(' . $fields . '),homepage = c(' . $homepage . '))';
