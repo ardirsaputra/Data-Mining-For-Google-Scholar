@@ -16,12 +16,4 @@ class DB
             return $data;
         }
     }
-    public static function loginUser($user_id)
-    {
-        $cstrong = true;
-        $token = bin2hex(openssl_random_pseudo_bytes(64, $cstrong));
-        DB::query('INSERT INTO login_token VALUES (\'\', :token, :idUser )', array(':token' => sha1($token), ':idUser' => $user_id));
-        setcookie("PRPL", $token, time() + 60 * 60 * 17, '/', null, null, true);
-        setcookie("PRPL1", '1', time() + 60 * 60 * 17, '/', null, null, true);
-    }
 }
