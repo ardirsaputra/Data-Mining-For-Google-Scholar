@@ -10,3 +10,11 @@ function pretty($array)
     print_r($array);
     echo "</pre>";
 }
+function setLimitString($string, $count = 10)
+{
+    if (strlen($string) > $count) {
+        return substr($string, 0, $count) . "...";
+    } else {
+        return $string;
+    }
+}

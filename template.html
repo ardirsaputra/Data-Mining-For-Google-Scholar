@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Data Scholar UI</title>
+    <link rel="stylesheet" href="./vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="./vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="./vendors/css/vendor.bundle.addons.css">
+    <link rel="stylesheet" href="./vendors/iconfonts/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/costum.css">
+    <link rel="shortcut icon" href="./images/favicon.png" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+</head>
+
+<body>
+    <div class="container-scroller">
+
+        <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+                <a class="navbar-brand brand-logo" href="./">
+                    DM Google Scholar
+                </a>
+            </div>
+
+            <div class="navbar-menu-wrapper d-flex align-items-center">
+                <ul class="navbar-nav navbar-nav-right">
+                    <!--User account top-right-->
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container-fluid page-body-wrapper">
+
+            <nav class="sidebar sidebar-offcanvas bg-dark" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./">
+                            <i class="menu-icon mdi mdi-home"></i>
+                            <span class="menu-title">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#search" class="nav-link" data-toggle="modal" data-target="#search">
+                            <i class="menu-icon fa fa-search"></i>
+                            <span class="menu-title">Pencarian</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+
+            <div class="main-panel">
+
+                <div class="content-wrapper">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="Text-light alert alert-info p-3 text-center">Daftar Civitas Universitas Indonesia
+                            </h4>
+                            <canvas id="myChart" width="300" height="200"></canvas>
+                            <script>
+                                var ctx = document.getElementById('myChart').getContext('2d');
+                                var myChart = new Chart(ctx, {
+                                    type: 'bar',
+                                    data: {
+                                        labels: ['Red', 'Blue', 'Yellow'],
+                                        datasets: [{
+                                            label: '# of Votes',
+                                            data: [12, 19, 3],
+                                            backgroundColor: [
+                                                'rgba(255, 99, 132, 0.2)',
+                                                'rgba(54, 162, 235, 0.2)',
+                                                'rgba(255, 206, 86, 0.2)'
+                                            ],
+                                            borderColor: [
+                                                'rgba(255, 99, 132, 1)',
+                                                'rgba(54, 162, 235, 1)',
+                                                'rgba(255, 206, 86, 1)'
+                                            ],
+                                            borderWidth: 0.5
+                                        }]
+                                    },
+                                    options: {
+                                        scales: {
+                                            yAxes: [{
+                                                ticks: {
+                                                    beginAtZero: true
+                                                }
+                                            }]
+                                        }
+                                    }
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <script>Swal.fire({
+                title: 'Welcome!',
+                text: '50 Data Google Scholar in University of Indonesia',
+                type: '',
+                confirmButtonText: 'Yeay!'
+            })  </script>
+        <footer class="footer">
+            <div class="container-fluid clearfix">
+                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2019
+                    <a href="http://www.zakaa.id/" target="_blank">ARS</a>. All rights reserved.</span>
+                <span class="float-none float-sm-right text-muted d-block mt-1 mt-sm-0 text-center">
+                    <a href="https://codepen.io/ardiragilsaputra/full/yxoOOm/" target="_blank">Ars</a>
+                </span>
+            </div>
+        </footer>
+        <script src="./vendors/js/vendor.bundle.base.js"></script>
+        <script src="./vendors/js/vendor.bundle.addons.js"></script>
+        <script src="./js/off-canvas.js"></script>
+        <script src="./js/misc.js"></script>
+        <script src="./js/dashboard.js"></script>
+
+
+    </div>
+</body>
+
+</html>

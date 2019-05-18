@@ -1,2 +1,13 @@
 /node_modules/
 /vendors/
+
+/PhpSpreadsheet/tests/codeCoverage
+/PhpSpreadsheet/analysis
+/PhpSpreadsheet/vendor/
+/PhpSpreadsheet/phpunit.xml
+
+## IDE support
+/PhpSpreadsheet/*.buildpath
+/PhpSpreadsheet/*.project
+/PhpSpreadsheet/.settings
+/PhpSpreadsheet/.idea
