@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Data Scholar UI</title>
+    <link rel="stylesheet" href="./vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="./vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="./vendors/css/vendor.bundle.addons.css">
+    <link rel="stylesheet" href="./vendors/iconfonts/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/costum.css">
+    <link rel="shortcut icon" href="./images/favicon.png" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+</head>
+
+<body>
+    <div class="container-scroller">
+
+        <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+                <a class="navbar-brand brand-logo" href="./">
+                    DM Google Scholar
+                </a>
+            </div>
+
+            <div class="navbar-menu-wrapper d-flex align-items-center">
+                <ul class="navbar-nav navbar-nav-right">
+                    <!--User account top-right-->
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container-fluid page-body-wrapper">
+
+            <nav class="sidebar sidebar-offcanvas bg-dark" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./">
+                            <i class="menu-icon mdi mdi-home"></i>
+                            <span class="menu-title">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#search" class="nav-link" data-toggle="modal" data-target="#search">
+                            <i class="menu-icon fa fa-search"></i>
+                            <span class="menu-title">Pencarian</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+
+            <div class="main-panel">
+
+                <div class="content-wrapper">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="Text-light alert alert-info p-3 text-center">Daftar Civitas Universitas Indonesia
+                            </h4>
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama</th>
+                                            <th>Affiliation</th>
+                                            <th>Total Cites</th>
+                                            <th>H</th>
+                                            <th>i10</th>
+                                            <th>fields</th>
+                                            <th>Homepage</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+
+                                        <tr>
+                                            <td>1</td>
+                                            <td><a href="./user.php?id=iJKRnI8AAAAJ" class="text-black">M Malik</a></td>
+                                            <td>universita...</td>
+                                            <td>39108</td>
+                                            <td>84 </td>
+                                            <td>320 </td>
+                                            <td> staff.ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>2</td>
+                                            <td><a href="./user.php?id=cFenRT4AAAAJ" class="text-black">Munir Machmud
+                                                    Ali</a></td>
+                                            <td>universita...</td>
+                                            <td>17550</td>
+                                            <td>66 </td>
+                                            <td>210 </td>
+                                            <td> staff.ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>3</td>
+                                            <td><a href="./user.php?id=3wQdAXgAAAAJ" class="text-black">Sukirno</a></td>
+                                            <td>Universita...</td>
+                                            <td>7247</td>
+                                            <td>23 </td>
+                                            <td>27 </td>
+                                            <td> staff.ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>4</td>
+                                            <td><a href="./user.php?id=q8kQaQIAAAAJ" class="text-black">Jimly
+                                                    Asshiddique</a></td>
+                                            <td>Universita...</td>
+                                            <td>6565</td>
+                                            <td>30 </td>
+                                            <td>46 </td>
+                                            <td> staff.ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>5</td>
+                                            <td><a href="./user.php?id=Ya8scsoAAAAJ" class="text-black">Rambat
+                                                    Lupiyoadi</a></td>
+                                            <td>universita...</td>
+                                            <td>5659</td>
+                                            <td>11 </td>
+                                            <td>11 </td>
+                                            <td> staff.ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>6</td>
+                                            <td><a href="./user.php?id=vAYxYCEAAAAJ" class="text-black">Nandy Putra</a>
+                                            </td>
+                                            <td>Professor ...</td>
+                                            <td>5609</td>
+                                            <td>17 </td>
+                                            <td>25 </td>
+                                            <td> eng.ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>7</td>
+                                            <td><a href="./user.php?id=48aspzAAAAAJ" class="text-black">Sofjan
+                                                    Assauri</a></td>
+                                            <td>Universita...</td>
+                                            <td>5422</td>
+                                            <td>20 </td>
+                                            <td>28 </td>
+                                            <td> staff.ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>8</td>
+                                            <td><a href="./user.php?id=1hvHmw0AAAAJ" class="text-black">David
+                                                    Maxwell</a></td>
+                                            <td>Universita...</td>
+                                            <td>4697</td>
+                                            <td>34 </td>
+                                            <td>76 </td>
+                                            <td> staff.ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>9</td>
+                                            <td><a href="./user.php?id=6LOMLkYAAAAJ" class="text-black">Jatna
+                                                    Supriatna</a></td>
+                                            <td>Professor ...</td>
+                                            <td>3314</td>
+                                            <td>30 </td>
+                                            <td>50 </td>
+                                            <td> rccc.ui.ac.id - homepage </td>
+                                            <td>www.rccc.ui.ac.id </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>10</td>
+                                            <td><a href="./user.php?id=buNtmFwAAAAJ" class="text-black">Ari Kuncoro</a>
+                                            </td>
+                                            <td>Professor ...</td>
+                                            <td>3175</td>
+                                            <td>14 </td>
+                                            <td>14 </td>
+                                            <td> ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>11</td>
+                                            <td><a href="./user.php?id=m8E9GkIAAAAJ" class="text-black">Indah S
+                                                    Widyahening</a></td>
+                                            <td>Faculty of...</td>
+                                            <td>3123</td>
+                                            <td>10 </td>
+                                            <td>10 </td>
+                                            <td> ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>12</td>
+                                            <td><a href="./user.php?id=DcVSP2wAAAAJ" class="text-black">Terry Mart</a>
+                                            </td>
+                                            <td>Professor ...</td>
+                                            <td>3091</td>
+                                            <td>23 </td>
+                                            <td>50 </td>
+                                            <td> sci.ui.ac.id - homepage </td>
+                                            <td>staff.fisika.ui.ac.id/tmart/ </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>13</td>
+                                            <td><a href="./user.php?id=Hdt7B-YAAAAJ" class="text-black">Endang
+                                                    Achadi</a></td>
+                                            <td>Universita...</td>
+                                            <td>2862</td>
+                                            <td>25 </td>
+                                            <td>40 </td>
+                                            <td> ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>14</td>
+                                            <td><a href="./user.php?id=_g36jpkAAAAJ" class="text-black">Marcellus
+                                                    Simadibrata</a></td>
+                                            <td>Department...</td>
+                                            <td>2194</td>
+                                            <td>18 </td>
+                                            <td>24 </td>
+                                            <td> ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>15</td>
+                                            <td><a href="./user.php?id=mhlc5VwAAAAJ" class="text-black">Melani
+                                                    Budianta</a></td>
+                                            <td>Professor ...</td>
+                                            <td>1966</td>
+                                            <td>13 </td>
+                                            <td>17 </td>
+                                            <td> ui.ac.id - homepage </td>
+                                            <td>wacana.ui.ac.id/ </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>16</td>
+                                            <td><a href="./user.php?id=slJPkvwAAAAJ" class="text-black">Agnes
+                                                    Kurniawan</a></td>
+                                            <td>University...</td>
+                                            <td>1865</td>
+                                            <td>21 </td>
+                                            <td>26 </td>
+                                            <td> ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>17</td>
+                                            <td><a href="./user.php?id=ZLC8oXgAAAAJ" class="text-black">Tribidasari A.
+                                                    Ivandini</a></td>
+                                            <td>University...</td>
+                                            <td>1843</td>
+                                            <td>24 </td>
+                                            <td>35 </td>
+                                            <td> sci.ui.ac.id - homepage </td>
+                                            <td>www.chem.ui.ac.id/staff/kbi-kimia-fisik/ivandini-tribidasari-a </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>18</td>
+                                            <td><a href="./user.php?id=1_3WGxIAAAAJ" class="text-black">Iwan Jaya
+                                                    Azis</a></td>
+                                            <td>Universita...</td>
+                                            <td>1832</td>
+                                            <td>21 </td>
+                                            <td>41 </td>
+                                            <td> staff.ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>19</td>
+                                            <td><a href="./user.php?id=YqabAYwAAAAJ" class="text-black">Rino Alvani
+                                                    Gani</a></td>
+                                            <td>Universita...</td>
+                                            <td>1793</td>
+                                            <td>17 </td>
+                                            <td>21 </td>
+                                            <td> ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>20</td>
+                                            <td><a href="./user.php?id=vzfKrdAAAAAJ" class="text-black">Aru Sudoyo</a>
+                                            </td>
+                                            <td>Department...</td>
+                                            <td>1767</td>
+                                            <td>17 </td>
+                                            <td>23 </td>
+                                            <td> ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>21</td>
+                                            <td><a href="./user.php?id=rCOO4P4AAAAJ" class="text-black">Lina Miftahul
+                                                    Jannah</a></td>
+                                            <td>Faculty of...</td>
+                                            <td>1677</td>
+                                            <td>8 </td>
+                                            <td>8 </td>
+                                            <td> ui.ac.id - homepage </td>
+                                            <td>linamjannah.wordpress.com/ </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>22</td>
+                                            <td><a href="./user.php?id=pYjfPacAAAAJ" class="text-black">Murdani
+                                                    Abdullah, MD. PhD. FACG. FASGE</a></td>
+                                            <td>Professor ...</td>
+                                            <td>1668</td>
+                                            <td>18 </td>
+                                            <td>29 </td>
+                                            <td> ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>23</td>
+                                            <td><a href="./user.php?id=aygm-fQAAAAJ" class="text-black">Eko A
+                                                    Meinarno</a></td>
+                                            <td>Universita...</td>
+                                            <td>1631</td>
+                                            <td>7 </td>
+                                            <td>6 </td>
+                                            <td> ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>24</td>
+                                            <td><a href="./user.php?id=VZmX3RkAAAAJ" class="text-black">Elizabeth Kristi
+                                                    Poerwandari</a></td>
+                                            <td>Universita...</td>
+                                            <td>1616</td>
+                                            <td>10 </td>
+                                            <td>11 </td>
+                                            <td> ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>25</td>
+                                            <td><a href="./user.php?id=ql6gP9QAAAAJ" class="text-black">Idrus Alwi</a>
+                                            </td>
+                                            <td>Profesor i...</td>
+                                            <td>1603</td>
+                                            <td>15 </td>
+                                            <td>23 </td>
+                                            <td> ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>26</td>
+                                            <td><a href="./user.php?id=bh2_NlAAAAAJ" class="text-black">Rosari Saleh</a>
+                                            </td>
+                                            <td>Universita...</td>
+                                            <td>1596</td>
+                                            <td>20 </td>
+                                            <td>30 </td>
+                                            <td> ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>27</td>
+                                            <td><a href="./user.php?id=TTVIc6cAAAAJ" class="text-black">I Adi</a></td>
+                                            <td>FISIP, Uni...</td>
+                                            <td>1586</td>
+                                            <td>9 </td>
+                                            <td>9 </td>
+                                            <td> ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>28</td>
+                                            <td><a href="./user.php?id=LXBn-8oAAAAJ" class="text-black">Rinaldi
+                                                    Lesmana</a></td>
+                                            <td>Universita...</td>
+                                            <td>1585</td>
+                                            <td>14 </td>
+                                            <td>16 </td>
+                                            <td> ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>29</td>
+                                            <td><a href="./user.php?id=I6e272EAAAAJ" class="text-black">Tjandra Yoga
+                                                    Aditama</a></td>
+                                            <td>Universita...</td>
+                                            <td>1557</td>
+                                            <td>20 </td>
+                                            <td>33 </td>
+                                            <td> staff.ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>30</td>
+                                            <td><a href="./user.php?id=8bjW7A4AAAAJ" class="text-black">Sidharta
+                                                    Utama</a></td>
+                                            <td>Professor ...</td>
+                                            <td>1516</td>
+                                            <td>15 </td>
+                                            <td>21 </td>
+                                            <td> ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>31</td>
+                                            <td><a href="./user.php?id=2RirDyEAAAAJ" class="text-black">Sylvia Veronica
+                                                    Siregar</a></td>
+                                            <td>Universita...</td>
+                                            <td>1496</td>
+                                            <td>14 </td>
+                                            <td>17 </td>
+                                            <td> ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>32</td>
+                                            <td><a href="./user.php?id=cAocFcsAAAAJ" class="text-black">Budi Utomo
+                                                    Utomo</a></td>
+                                            <td>University...</td>
+                                            <td>1452</td>
+                                            <td>17 </td>
+                                            <td>27 </td>
+                                            <td> ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>33</td>
+                                            <td><a href="./user.php?id=Ey_9mpIAAAAJ" class="text-black">topo Santoso</a>
+                                            </td>
+                                            <td>university...</td>
+                                            <td>1410</td>
+                                            <td>18 </td>
+                                            <td>31 </td>
+                                            <td> ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>34</td>
+                                            <td><a href="./user.php?id=gWv-VB0AAAAJ" class="text-black">Azwar Manaf</a>
+                                            </td>
+                                            <td>Univerista...</td>
+                                            <td>1387</td>
+                                            <td>12 </td>
+                                            <td>13 </td>
+                                            <td> sci.ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>35</td>
+                                            <td><a href="./user.php?id=bIoUNggAAAAJ" class="text-black">Sutanto Priyo
+                                                    Hastono</a></td>
+                                            <td>Universita...</td>
+                                            <td>1377</td>
+                                            <td>13 </td>
+                                            <td>14 </td>
+                                            <td> staff.ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>36</td>
+                                            <td><a href="./user.php?id=_cU5eIUAAAAJ" class="text-black">Yuditiya
+                                                    Purwosunu</a></td>
+                                            <td>Dept Obste...</td>
+                                            <td>1375</td>
+                                            <td>24 </td>
+                                            <td>31 </td>
+                                            <td> ui.ac.id - homepage </td>
+                                            <td>/aboutme.google.com/u/0/?referer=gpuls </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>37</td>
+                                            <td><a href="./user.php?id=VARh7fMAAAAJ" class="text-black">Dwi Martani</a>
+                                            </td>
+                                            <td>Professor ...</td>
+                                            <td>1351</td>
+                                            <td>18 </td>
+                                            <td>35 </td>
+                                            <td> ui.ac.id - homepage </td>
+                                            <td>staf.blog.ui.ac.id/martani </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>38</td>
+                                            <td><a href="./user.php?id=JKUpQDYAAAAJ" class="text-black">Pradana
+                                                    Soewondo</a></td>
+                                            <td>Universita...</td>
+                                            <td>1344</td>
+                                            <td>18 </td>
+                                            <td>26 </td>
+                                            <td> ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>39</td>
+                                            <td><a href="./user.php?id=vxmNDIkAAAAJ" class="text-black">Mustafa Edwin
+                                                    Nasution</a></td>
+                                            <td>Universita...</td>
+                                            <td>1341</td>
+                                            <td>11 </td>
+                                            <td>11 </td>
+                                            <td> staff.ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>40</td>
+                                            <td><a href="./user.php?id=6Eb1FpsAAAAJ" class="text-black">Roby Muhamad</a>
+                                            </td>
+                                            <td>Faculty of...</td>
+                                            <td>1334</td>
+                                            <td>4 </td>
+                                            <td>4 </td>
+                                            <td> ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>41</td>
+                                            <td><a href="./user.php?id=tj_Q1AcAAAAJ" class="text-black">Nachrowi Djalal
+                                                    Nachrowi</a></td>
+                                            <td>Professor ...</td>
+                                            <td>1320</td>
+                                            <td>10 </td>
+                                            <td>10 </td>
+                                            <td> ui.ac.id - homepage </td>
+                                            <td>staff.ui.ac.id/nachrowi?referrer=search_user </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>42</td>
+                                            <td><a href="./user.php?id=INnE42kAAAAJ" class="text-black">Wisnu
+                                                    Jatmiko</a></td>
+                                            <td>Professor,...</td>
+                                            <td>1298</td>
+                                            <td>20 </td>
+                                            <td>38 </td>
+                                            <td> cs.ui.ac.id - homepage </td>
+                                            <td>staff.ui.ac.id/wisnuj </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>43</td>
+                                            <td><a href="./user.php?id=FMOZzmEAAAAJ" class="text-black">Budi Anna
+                                                    Keliat</a></td>
+                                            <td>Faculty of...</td>
+                                            <td>1295</td>
+                                            <td>19 </td>
+                                            <td>24 </td>
+                                            <td> ui.ac.id - homepage </td>
+                                            <td>budiannakeliat.com </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>44</td>
+                                            <td><a href="./user.php?id=eXEccP4AAAAJ" class="text-black">Evy
+                                                    Yunihastuti</a></td>
+                                            <td>Faculty of...</td>
+                                            <td>1272</td>
+                                            <td>17 </td>
+                                            <td>25 </td>
+                                            <td> ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>45</td>
+                                            <td><a href="./user.php?id=vTzQ64IAAAAJ" class="text-black">Keba Moto</a>
+                                            </td>
+                                            <td>Universita...</td>
+                                            <td>1251</td>
+                                            <td>11 </td>
+                                            <td>11 </td>
+                                            <td> staff.ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>46</td>
+                                            <td><a href="./user.php?id=I0T0cPMAAAAJ" class="text-black">Yusuf
+                                                    Wibisono</a></td>
+                                            <td>universita...</td>
+                                            <td>1217</td>
+                                            <td>12 </td>
+                                            <td>13 </td>
+                                            <td> staff.ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>47</td>
+                                            <td><a href="./user.php?id=tpzw4SgAAAAJ" class="text-black">Zainal A.
+                                                    Hasibuan</a></td>
+                                            <td>Professor ...</td>
+                                            <td>1203</td>
+                                            <td>16 </td>
+                                            <td>27 </td>
+                                            <td> cs.ui.ac.id - homepage </td>
+                                            <td>dl2.cs.ui.ac.if/v4/ </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>48</td>
+                                            <td><a href="./user.php?id=8yUiyckAAAAJ" class="text-black">Tri Krianto
+                                                    Karjoso</a></td>
+                                            <td>Lektor Kep...</td>
+                                            <td>1202</td>
+                                            <td>3 </td>
+                                            <td>1 </td>
+                                            <td> ui.ac.id - homepage </td>
+                                            <td>staff.blog.ui.ac.id/tkriantol </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>49</td>
+                                            <td><a href="./user.php?id=En3_A0gAAAAJ" class="text-black">Zulkifli
+                                                    Amin</a></td>
+                                            <td>Pulmonolog...</td>
+                                            <td>1181</td>
+                                            <td>12 </td>
+                                            <td>15 </td>
+                                            <td> ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>50</td>
+                                            <td><a href="./user.php?id=WDXN5sUAAAAJ" class="text-black">Inge Sutanto</a>
+                                            </td>
+                                            <td>Universita...</td>
+                                            <td>1164</td>
+                                            <td>20 </td>
+                                            <td>26 </td>
+                                            <td> staff.ui.ac.id </td>
+                                            <td> </td>
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <script> </script>
+        <footer class="footer">
+            <div class="container-fluid clearfix">
+                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2019
+                    <a href="http://www.github.com/ardirsaputra" target="_blank">ARS</a>. All rights reserved.</span>
+                <span class="float-none float-sm-right text-muted d-block mt-1 mt-sm-0 text-center">
+                    <a href="https://codepen.io/ardiragilsaputra/full/yxoOOm/" target="_blank">Ars</a>
+                </span>
+            </div>
+        </footer>
+        <script src="./vendors/js/vendor.bundle.base.js"></script>
+        <script src="./vendors/js/vendor.bundle.addons.js"></script>
+        <script src="./js/off-canvas.js"></script>
+        <script src="./js/misc.js"></script>
+        <script src="./js/dashboard.js"></script>
+
+
+    </div>
+</body>
+
+</html>

@@ -10,13 +10,13 @@
 }
 
 .col-centered {
-    display:flex; 
-    justify-content:center;
+    display: flex;
+    justify-content: center;
 }
 
 .box-details {
     padding: 12.5px;
-    background:rgba(228, 228, 228, 0.46);
+    background: rgba(228, 228, 228, 0.46);
 }
 
 .btn-file {
@@ -32,9 +32,12 @@
     color: #404852;
     margin-bottom: 22px;
     font-size: 20px;
-    text-transform: capitalize; }
-    .rtl .card-title {
-      text-align: right; }
+    text-transform: capitalize;
+}
+
+.rtl .card-title {
+    text-align: right;
+}
 
 main .stretch-card .prolink :hover {
     text-decoration: none !important;
@@ -47,10 +50,11 @@ main .stretch-card .prolink :hover {
 .tooltip .tooltiptext::after {
     content: " ";
     position: absolute;
-    top: 100%; /* At the bottom of the tooltip */
+    top: 100%;
+    /* At the bottom of the tooltip */
     left: 50%;
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
     border-color: black transparent transparent transparent;
-  }
+}

@@ -8,7 +8,7 @@ $judul = "Data Scholar UI";
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     if (DB::query('SELECT * FROM user WHERE id = :id', array(':id' => $id))) {
-        $datadb  = DB::query('SELECT * FROM user WHERE id = :id', array(':id' => $id))[0];
+        $datadb  = DB::query('SELECT * FROM user WHERE id = :id', array(':id' => $id));
         //pretty($datadb);
         $id = $_GET['id'];
         $nama = $datadb[0][1];
@@ -69,7 +69,29 @@ if (isset($_GET['id'])) {
                                     <i class="menu-icon fa fa-search"></i><span class="menu-title"> Pencarian </span>
                                 </a>
                             </li>
+
                     </nav>
+                    <div class="modal" id="search">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <form class="forms-sample" action="./search.php" method="get">
+                                        <div class="form-group row">
+                                            <div class="input-group col-sm-12">
+                                                <input type="text" name="search" class="form-control" placeholder="Pencarian... " aria-label="Pencarian..." aria-describedby="colored-addon3">
+                                                <div class="input-group-append bg-primary border-primary">
+                                                    <button class="btn btn-primary" type="submit">
+                                                        <span class="fa fa-search text-white"></span>
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times text-white"></span></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     </ul>
                     <div class="main-panel">
 
@@ -78,41 +100,204 @@ if (isset($_GET['id'])) {
                                 <div class="col-lg-12 grid-margin stretch-card">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="Text-light alert alert-info p-3 text-center">Daftar Civitas Universitas Indonesia</h4>
+                                            <img src="https://scholar.google.co.id/citations?view_op=small_photo&user=<?php echo $id; ?>&citpid=1" alt="foto google scholar" />
+                                            &nbsp;<strong class="h1"> <a class="" href="./user.php?id=<?php echo $id ?>"><?php echo  $nama; ?> </a>
+                                            </strong>
+                                            <div class="float-right row">
+                                                <i class="col-12 text-right"><?php echo $affiliation; ?> </i>
+                                                <a class="col-12 text-right" href="<?php echo $homepage; ?>"><?php echo $homepage; ?></a>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
+                                <?php if (isset($_GET['view'])) {
+                                    if ($_GET['view'] == "publikasi") {
+                                        ?>
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 grid-margin stretch-card">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="table-responsive">
+                                                        <table class="table table-striped">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>No</th>
+                                                                    <th>Judul</th>
+                                                                    <th>Jumlah Dikutip</th>
+                                                                    <th>Tahun</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php
+                                                                $datapublikasi = DB::query('SELECT * FROM publications WHERE user_id = :id', array(':id' => $id));
+                                                                //pretty($datapublikasi);
+                                                                $iterasi = 1;
+                                                                foreach ($datapublikasi as $i) {
+                                                                    echo "<tr><td>" . $iterasi . "</td><td>" . $i['title'] . "</td><td>" . $i['cites'] . "</td><td>" . $i['year'] . "</td></tr>";
+                                                                    $iterasi++;
+                                                                }
 
-                                <div class="col-lg-6 grid-margin stretch-card">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h4 class="card-title">Line chart</h4>
-                                            <canvas id="lineChart" style="height:250px"></canvas>
+                                                                ?>
+                                                            </tbody>
+                                                        </table>
+                                                        </table>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php
+                                }
+                            } else {
+                                ?>
+                                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+                                        <div class="card card-statistics">
+                                            <div class="card-body">
+                                                <div class="clearfix">
+                                                    <div class="float-left">
+                                                        <i class="fa fa-file text-success icon-lg"></i>
+                                                    </div>
+                                                    <div class="float-right">
+                                                        <p class="mb-0 text-right">Total Sitasi</p>
+                                                        <div class="fluid-container">
+                                                            <h3 class="font-weight-medium text-right mb-0 font-cash-card">
+                                                                <?php echo $total_cites; ?>
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+                                        <div class="card card-statistics">
+                                            <div class="card-body">
+                                                <div class="clearfix">
+                                                    <div class="float-left">
+                                                        <i class="fa fa-caret-square-o-up text-info icon-lg"></i>
+                                                    </div>
+                                                    <div class="float-right">
+                                                        <p class="mb-0 text-right">H Index</p>
+                                                        <div class="fluid-container">
+                                                            <h3 class="font-weight-medium text-right mb-0 font-cash-card">
+                                                                <?php echo $h_index; ?>
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+                                        <div class="card card-statistics">
+                                            <div class="card-body">
+                                                <div class="clearfix">
+                                                    <div class="float-left">
+                                                        <i class="fa fa-level-up text-primary icon-lg"></i>
+                                                    </div>
+                                                    <div class="float-right">
+                                                        <p class="mb-0 text-right">i10 Index</p>
+                                                        <div class="fluid-container">
+                                                            <h3 class="font-weight-medium text-right mb-0 font-cash-card">
+                                                                <?php echo $i10_index; ?>
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+                                        <div class="card card-statistics">
+                                            <div class="card-body">
+                                                <div class="clearfix">
+                                                    <div class="float-left">
+                                                        <i class="fa fa-stack-overflow text-warning icon-lg"></i>
+                                                    </div>
+                                                    <div class="float-right">
+                                                        <p class="mb-0 text-right">Total Publikasi</p>
+                                                        <div class="fluid-container">
+                                                            <h3 class="font-weight-medium text-right mb-0 font-cash-card">
+                                                                <?php
+                                                                $jumlah_pub = DB::query('SELECT Count(id) FROM publications WHERE user_id = :user_id', array(":user_id" => $id))[0][0];
+                                                                ?>
+                                                                <?php echo $jumlah_pub; ?>
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 grid-margin stretch-card">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Diagram</h4>
+                                                <canvas id="myChart" width="100px" height="130px" style="width:10px;height:10px"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 grid-margin stretch-card">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h4 class="Text-light alert alert-info p-3 text-center">Publikasi</h4>
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Judul</th>
+                                                                <th>Dikutip Oleh</th>
+                                                                <th>Tahun</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <?php
+                                                            $datapublikasi = DB::query('SELECT * FROM publications WHERE user_id = :id Limit 5', array(':id' => $id));
+                                                            //pretty($datapublikasi);
+                                                            foreach ($datapublikasi as $i) {
+                                                                echo "<tr><td>" . setLimitString($i['title'], 100) . "</td><td>" . $i['cites'] . "</td><td>" . $i['year'] . "</td></tr>";
+                                                            }
+                                                            if (DB::query('SELECT count(id) FROM  publications WHERE user_id = :id', array(':id' => $id))[0][0] > 5) {
+                                                                echo '<tr><td colspan="3" align="center"> <a href="./user.php?id=' . $id . '&view=publikasi" class="">Lihat Semua</a>  </td></tr>';
+                                                            }
+                                                            ?>
+                                                        </tbody>
+                                                    </table>
+                                                    </table>
+                                                </div>
 
-                                <canvas id="myChart" width="" height="" style="width:10px;height:10px"></canvas>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php
+
+                            }
+                            ?>
+
+
+
                                 <script>
                                     var ctx = document.getElementById('myChart').getContext('2d');
                                     var myChart = new Chart(ctx, {
                                         type: 'bar',
                                         data: {
-                                            labels: ['Red', 'Blue', 'Yellow'],
+                                            labels: ['i10 Index', 'H Index', 'Jumlah Publikasi'],
                                             datasets: [{
-                                                label: '# of Votes',
-                                                data: [12, 19, 3],
+                                                label: 'Data',
+                                                data: [<?php echo $i10_index ?>, <?php echo $h_index ?>, <?php echo $jumlah_pub ?>],
                                                 backgroundColor: [
-                                                    'rgba(255, 99, 132, 0.2)',
-                                                    'rgba(54, 162, 235, 0.2)',
-                                                    'rgba(255, 206, 86, 0.2)'
+                                                    'rgba(255, 99, 132, 1)',
+                                                    'rgba(54, 162, 235, 1)',
+                                                    'rgba(255, 206, 86, 1)'
                                                 ],
                                                 borderColor: [
                                                     'rgba(255, 99, 132, 1)',
                                                     'rgba(54, 162, 235, 1)',
                                                     'rgba(255, 206, 86, 1)'
                                                 ],
-                                                borderWidth: 0.5
+                                                borderWidth: 10
                                             }]
                                         },
                                         options: {
@@ -127,33 +312,35 @@ if (isset($_GET['id'])) {
                                     });
                                 </script>
                             </div>
+
+
                         </div>
+                        <footer class=" footer ">
+                            <div class=" container-fluid clearfix">
+                                <span class="text-muted   d-block text-center  text-sm-left   d-sm-inline-block">Copyright © 2019
+                                    <a href="http: //www.github.com/ardirsaputra/" target="_blank">ARS</a>. All rights reserved.</span>
+                                <span class="float-none float-sm-right text-muted d-block mt-1 mt-sm-0 text-center">
+                                    <a href="https://codepen.io/ardiragilsaputra/full/yxoOOm/" target="_blank "> Ars</a>
+                                </span>
+                            </div>
+                        </footer>
                     </div>
 
                 </div>
-                <hr>
-                <footer class="footer">
-                    <div class="container-fluid clearfix">
-                        <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2019
-                            <a href="http://www.zakaa.id/" target="_blank">ARS</a>. All rights reserved.</span>
-                        <span class="float-none float-sm-right text-muted d-block mt-1 mt-sm-0 text-center">
-                            <a href="https://codepen.io/ardiragilsaputra/full/yxoOOm/" target="_blank">Ars</a>
-                        </span>
-                    </div>
-                </footer>
-                <div class="modal" id="search">
+
+                <div class="modal" id=" search">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-body">
-                                <form class="forms-sample" action="./search.php" method="post">
+                                <form class="forms-sample" action="./search. php" method="post">
                                     <div class="form-group row">
                                         <div class="input-group col-sm-12">
-                                            <input type="text" name="soal" class="form-control" placeholder="Cari Soal Disini" aria-label="Masukkan Nama" aria-describedby="colored-addon3">
-                                            <div class="input-group-append bg-primary border-primary">
+                                            <input typ e="text" nam e="soal" class="form-contro l " placeholder="Cari Soa l  Disi n i" aria-label="Masuk k an Nama" ar i a-describedby="c olored-addon3">
+                                            <div class="input-group-append bg-primary  border-primary">
                                                 <button class="btn btn-primary" type="submit">
                                                     <span class="fa fa-search text-white"></span>
                                                 </button>
-                                                <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times text-white"></span></button>
+                                                <button type="button" class="btn  btn-danger" data-dismiss=" modal"><span class="fa fa-times   text-white"></span></button>
                                             </div>
                                         </div>
                                     </div>
@@ -162,33 +349,37 @@ if (isset($_GET['id'])) {
                         </div>
                     </div>
                 </div>
-                <script src="./vendors/js/vendor.bundle.base.js"></script>
-                <script src="./vendors/js/vendor.bundle.addons.js"></script>
-                <script src="./js/off-canvas.js"></script>
-                <script src="./js/misc.js"></script>
-                <script src="./js/dashboard.js"></script>
+                <script src="./vendors/js/vendor.bundle.base.js"> </script>
+
+                <script src="./vendors/js/vendor.bundle.addons.js"> </script>
+
+                <script src="./js/off-canvas.js"> </script>
+
+                <script src="./js/misc.js"> </script>
+
+                <script src="./js/dashboard.js ">
+                </script>
             </div>
         </body>
 
-        </html>
-    <?php
-} else {
-    $content = "Swal.fire({
+        </html> <?php
+        } else {
+            $content = "Swal.fire({
             title: '404!',
             text: 'D Not Found',
             type: 'error',
             confirmButtonText: 'Ok!'
           })";
-    setcookie('notif', $content, time() + 1, '/', null, null, null);
-    redirect('./');
-}
-} else {
-    $content = "Swal.fire({
+            setcookie('notif', $content, time() + 1, '/', null, null, null);
+            redirect('./');
+        }
+    } else {
+        $content = "Swal.fire({
         title: '404!',
         text: 'Invalid respone',
         type: 'error',
         confirmButtonText: 'Ok!'
       })";
-    setcookie('notif', $content, time() + 1, '/', null, null, null);
-    redirect('./');
-}
+        setcookie('notif', $content, time() + 1, '/', null, null, null);
+        redirect('./');
+    }

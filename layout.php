@@ -41,7 +41,7 @@ class Layout
         <footer class="footer">
         <div class="container-fluid clearfix">
             <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2019
-                <a href="http://www.zakaa.id/" target="_blank">ARS</a>. All rights reserved.</span>
+                <a href="http://www.github.com/ardirsaputra" target="_blank">ARS</a>. All rights reserved.</span>
             <span class="float-none float-sm-right text-muted d-block mt-1 mt-sm-0 text-center">
                 <a href="https://codepen.io/ardiragilsaputra/full/yxoOOm/" target="_blank">Ars</a>
             </span>
@@ -123,10 +123,10 @@ class Layout
                         <div class="content-wrapper">
                         ' . $isi . '
                         </div>
+                        ' . self::Footer() . '
                     </div>
                 </div>
-                <hr>
-                ' . self::Footer() . '
+
             </div>
         </body>
         </html>    
@@ -149,8 +149,30 @@ class Layout
                         <span class="menu-title">Pencarian</span> 
                     </a>
                  </li>
+                
             </ul>
         </nav>
+        <div class="modal" id="search">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <form class="forms-sample" action="./search.php" method="get">
+                            <div class="form-group row">  
+                                <div class="input-group col-sm-12">
+                                    <input type="text" name="search" class="form-control" placeholder="Pencarian... " aria-label="Pencarian..." aria-describedby="colored-addon3">
+                                    <div class="input-group-append bg-primary border-primary">
+                                        <button class="btn btn-primary" type="submit">
+                                            <span class="fa fa-search text-white"></span>
+                                        </button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times text-white"></span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         ';
     }
     public static function Navbar()
@@ -200,12 +222,12 @@ class Layout
             if ($i['homepage'] == NULL) {
                 $home = '';
             } else {
-                $home = substr($i['homepage'], 7);
+                $home = '<a href="' . $i['homepage'] . '">' . substr($i['homepage'], 7) . '</a>';
             }
             $renderer .= '
             <tr>
             <td>' . $iterasi . '</td>
-            <td><a href="./user.php?id=' . $i['id'] . '" class="text-black">' . $i['name'] . '</a></td>
+            <td><a href="./user.php?id=' . $i['id'] . '" class="text-black"> <img src="https://scholar.google.co.id/citations?view_op=small_photo&user=' . $i['id'] . '&citpid=1" alt="foto google scholar" /> &nbsp ' . $i['name'] . '</a></td>
             <td>' . setLimitString($i['affiliation']) . '</td>
             <td>' . $i['total_cites'] . '</td>
             <td>' . $i['h_index'] . ' </td>
@@ -217,12 +239,99 @@ class Layout
             ';
             $iterasi++;
         }
-
+        $civitas = count(DB::query('SELECT * FROM user'));
+        $publikasi = count(DB::query('SELECT * FROM publications'));
+        $sitasi = DB::query("SELECT SUM(total_cites) FROM user")[0][0];
+        $avgh_index = DB::query('SELECT AVG(h_index) FROM user')[0][0];
         $content = '
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                       <p class="h3 text-left"><img src="http://www.ui.ac.id/wp-content/uploads/2014/07/makara-web.png" alt="logo ui" /></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+                <div class="card card-statistics">
+                    <div class="card-body">
+                        <div class="clearfix">
+                            <div class="float-left">
+                                <i class="fa fa fa-user-circle-o text-primary icon-lg"></i>
+                            </div>
+                            <div class="float-right">
+                                <p class="mb-0 text-right">Total Dosen Teregister</p>
+                                <div class="fluid-container">
+                                    <h3 class="font-weight-medium text-right mb-0 font-cash-card">
+                                        ' . $civitas . '
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+                <div class="card card-statistics">
+                    <div class="card-body">
+                        <div class="clearfix">
+                            <div class="float-left">
+                                <i class="fa  fa-stack-overflow text-warning icon-lg"></i>
+                            </div>
+                            <div class="float-right">
+                                <p class="mb-0 text-right">Total Dokumen Publikasi</p>
+                                <div class="fluid-container">
+                                    <h3 class="font-weight-medium text-right mb-0 font-cash-card">
+                                        ' . $publikasi . '
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+                <div class="card card-statistics">
+                    <div class="card-body">
+                        <div class="clearfix">
+                            <div class="float-left">
+                                <i class="fa fa-file text-success icon-lg"></i>
+                            </div>
+                            <div class="float-right">
+                                <p class="mb-0 text-right">Total Sitasi</p>
+                                <div class="fluid-container">
+                                    <h3 class="font-weight-medium text-right mb-0 font-cash-card">
+                                        ' . $sitasi . '
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+                <div class="card card-statistics">
+                    <div class="card-body">
+                        <div class="clearfix">
+                            <div class="float-left">
+                                <i class="fa fa-caret-square-o-up text-info icon-lg"></i>
+                            </div>
+                            <div class="float-right">
+                                <p class="mb-0 text-right">Rata-rata H Index</p>
+                                <div class="fluid-container">
+                                    <h3 class="font-weight-medium text-right mb-0 font-cash-card">
+                                        ' . $avgh_index . '
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="card">
             <div class="card-body">
-                <h4 class="Text-light alert alert-info p-3 text-center">Daftar Civitas Universitas Indonesia</h4>
-                <div class="table-responsive">    
+                 <div class="table-responsive">    
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -248,5 +357,107 @@ class Layout
         </div>';
         //} else { }
         return $content;
+    }
+    public static function Pencarian($pencarian)
+    {
+        $datauser = DB::query('SELECT * FROM user WHERE name LIKE :name LIMIT 500', array(':name' => '%' . $pencarian . '%'));
+        $datapublikasi = DB::query('SELECT * FROM publications WHERE title LIKE :name LIMIT 500', array(':name' => '%' . $pencarian . '%'));
+        $renderuser = '';
+        $renderpublikasi = '';
+        if (count($datauser) >= 1) {
+            $iterasi = 1;
+            foreach ($datauser as $i) {
+                if ($i['homepage'] == NULL) {
+                    $home = '';
+                } else {
+                    $home = '<a href="' . $i['homepage'] . '">' . substr($i['homepage'], 7) . '</a>';
+                }
+                $renderuser .= '
+                <tr>
+                <td>' . $iterasi . '</td>
+                <td><a href="./user.php?id=' . $i['id'] . '" class="text-black"> <img src="https://scholar.google.co.id/citations?view_op=small_photo&user=' . $i['id'] . '&citpid=1" alt="foto google scholar" /> &nbsp ' . $i['name'] . '</a></td>
+                <td>' . setLimitString($i['affiliation']) . '</td>
+                <td>' . $i['total_cites'] . '</td>
+                <td>' . $i['h_index'] . ' </td>
+                <td>' . $i['i10_index'] . ' </td>
+                <td>' . substr($i['fields'], 17) . ' </td>
+                <td>' . $home . ' </td>
+                </tr>
+    
+                ';
+                $iterasi++;
+            }
+            $renderuser = '
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-header">
+                Hasil pencarian civitas dengan kata kunci "' . $pencarian . '" dengan hasil ' . count($datauser) . '
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>Affiliation</th>
+                                <th>Total Cites</th>
+                                <th>H</th>
+                                <th>i10</th>
+                                <th>fields</th>
+                                <th>Homepage</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            ' . $renderuser . '
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            ';
+        }
+        if (count($datapublikasi) >= 1) {
+            $iterasi = 1;
+            foreach ($datapublikasi as $i) {
+                $author = '<a href="./user.php?id=' . $i['user_id'] . '">' . DB::query('SELECT * FROM user WHERE id = :id', array(':id' => $i['user_id']))[0]['name'] . '</a>';
+                $renderpublikasi .= "<tr><td>" . $iterasi . "</td><td>" . setLimitString($i['title'], 50) . "</td><td>" . $author . "</td><td>" . $i['cites'] . "</td><td>" . $i['year'] . "</td></tr>";
+                $iterasi++;
+            }
+            $renderpublikasi = '
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-header">
+                Hasil pencarian publikasi dengan kata kunci "' . $pencarian . '" dengan hasil ' . count($datapublikasi) . '
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                <th>No</th>
+                                <th>Judul</th>
+                                <th>Penulis</th>
+                                <th>Jumlah Dikutip</th>
+                                <th>Tahun</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            ' . $renderpublikasi . '
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            ';
+        }
+        return '
+            <div  class= "row">
+                ' . $renderuser . '
+                ' . $renderpublikasi  . '
+            </div>';
     }
 }
